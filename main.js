@@ -80,7 +80,15 @@ function templateNota(){
     localStorage.setItem(clave,getInfo(nota))
     
     }
-    
+    // function eliminar nota 
+
+    function eliminarNota(clave){
+        //alert(clave)
+        localStorage.removeItem(clave)
+        showInfo(); 
+    }
+    //function editar nota 
+
     // leerla y sacarla por pantalla
     function showInfo(){
         // leerla y mostrarla por pantalla
@@ -92,7 +100,9 @@ function templateNota(){
             let valor = localStorage[clave]
             console.log(valor)  
             let elemento = `
-            <div class='lista-notas'>
+            <div id="${clave}" class='lista-notas'> 
+            <button onclick= 'eliminarNota()'> borrar </button>
+            <button onclick= 'editarNota()'> Editar </button>
             ${valor}
             </div>
             `
